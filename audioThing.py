@@ -57,8 +57,6 @@ def main():
     files = findWeba(path)                  # finds all the weba files in the file
     sortedFiles = sorted(files)
     idFiles = []
-    index = 0
-    BOOL = True
     while sortedFiles!=[]:                  # while not interated through all weba files
         if idFiles == []:
             idFiles.append(sortedFiles[0])  # grouping the files by id number
@@ -67,13 +65,11 @@ def main():
             idFiles.append(sortedFiles[0])
             sortedFiles.pop(0)
             concatVideos(idFiles,path)
-            idFiles=[]
             break
         if findID(idFiles[0])==findID(sortedFiles[0]):
             idFiles.append(sortedFiles[0])
             sortedFiles.pop(0)
         if findID(idFiles[0])!=findID(sortedFiles[0]):
-            print(idFiles)
             concatVideos(idFiles,path)
             idFiles=[]
 
